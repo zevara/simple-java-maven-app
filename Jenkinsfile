@@ -21,8 +21,9 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
+        stage('Deploy') {
             steps {
+                input message: 'Start deploy? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/deliver.sh'
             }
         }
