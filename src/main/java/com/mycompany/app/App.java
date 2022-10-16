@@ -12,12 +12,12 @@ public class App
     public App() {}
 
     public static void main(String[] args) {
-        System.out.println(new App().getMessage());
         try {
-           Thread.sleep(120000);
+            System.out.println(new App().getMessage());
+            Thread.sleep(120000);
         }
         catch(Exception e){
-          System.out.println(e);
+            System.out.println(e);
         }
         System.out.println("running properly.....");
  
