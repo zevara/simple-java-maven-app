@@ -11,15 +11,17 @@ public class App
     public App() {}
 
     public static void main(String[] args) {
-        while(true) {    
+
         System.out.println("Hello World!");    
-    }    
+
         // System.out.println(new App().getMessage());
     }
 
-    // private final String getMessage() {
-    //     return message;
-    // }
+    private final String getMessage() {
+        while(true) {
+        return message;
+        }    
+    }
 
 }
 
