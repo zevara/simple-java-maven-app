@@ -64,6 +64,7 @@
                 </requireMavenVersion>
               </rules>
               <fork>true</fork>
+              <argLine>-Xmx1024m</argLine>
             </configuration>
           </execution>
         </executions>
