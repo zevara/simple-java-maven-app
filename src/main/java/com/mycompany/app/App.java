@@ -1,4 +1,5 @@
 package com.mycompany.app;
+import java.util.concurrent.*; 
 
 /**
  * Hello world!
@@ -11,16 +12,23 @@ public class App
     public App() {}
 
     public static void main(String[] args) {
+         // Get time to sleep 
+        long timeToSleep = 120L; 
+  
+        // Create a TimeUnit object 
+        TimeUnit time = TimeUnit.SECONDS; 
 
-        // System.out.println("Hello World!");    
-
+        // System.out.println("Hello World!");
         System.out.println(new App().getMessage());
+        time.sleep(timeToSleep);     
+
+        
     }
 
     private final String getMessage() {
-        while(true) {
+
         return message;
-        }    
+
     }
 
 }
