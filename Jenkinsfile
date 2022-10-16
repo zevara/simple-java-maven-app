@@ -27,7 +27,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
                 timeout(time: 1, unit: 'MINUTES'){
                 sh "chmod +x -R ${env.WORKSPACE}"
-                sh './kill.sh'
+                sh './jenkins/scripts/deliver.sh'
                 }
                
             }
