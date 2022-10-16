@@ -14,7 +14,7 @@ public class App
     public static void main(String[] args) {
         System.out.println(new App().getMessage());
         try {
-           Thread.sleep(6000000);
+           Thread.sleep(120000);
         }
         catch(Exception e){
           System.out.println(e);
