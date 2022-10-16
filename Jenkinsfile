@@ -23,13 +23,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                timeout(time: 1, unit: 'MINUTES'){
                 input message: 'Start deploy? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/deliver.sh'
-                timeout(time: 1, unit: 'MINUTES'){
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh './jenkins/scripts/kill.sh'
                 }
-               
+                sh './jenkins/scripts/kill.sh'                      
             }
         }
     }
