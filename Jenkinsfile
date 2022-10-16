@@ -25,7 +25,6 @@ pipeline {
             steps {
                 input message: 'Start deploy? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/deliver.sh'
-                sh 'sleep 1m'
                 sh './jenkins/scripts/kill.sh'                
             }
         }
