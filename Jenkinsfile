@@ -24,10 +24,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 input message: 'Start deploy? (Click "Proceed" to continue)'
-                timeout(time: 1, unit: 'MINUTES'){
                 sh './jenkins/scripts/deliver.sh'
-                }
-                sh './jenkins/scripts/kill.sh'                      
+                sh 'sleep 1m'
+                sh './jenkins/scripts/kill.sh'                
             }
         }
     }
