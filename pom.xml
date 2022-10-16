@@ -25,9 +25,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
-           <configuration>
-            <argLine>-Xmx1024m</argLine>
-        </configuration>
+          <configuration>
+          <fork>true</fork>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
