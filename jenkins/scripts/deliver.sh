@@ -26,4 +26,5 @@ set -x
 java -jar target/${NAME}-${VERSION}.jar &
 sleep 1m
 echo $! > .pidfile
+kill $(cat .pidfile)
 set +x
