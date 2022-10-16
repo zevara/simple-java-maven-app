@@ -1,5 +1,4 @@
 package com.mycompany.app;
-import java.lang.Thread;  
 
 /**
  * Hello world!
@@ -12,19 +11,12 @@ public class App
     public App() {}
 
     public static void main(String[] args) {
-        try {
-            System.out.println(new App().getMessage());
-            Thread.sleep(120000);
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-        System.out.println("Hello World!");
- 
-         }
+        System.out.println(new App().getMessage());
+    }
 
     private final String getMessage() {
         return message;
     }
 
 }
+
