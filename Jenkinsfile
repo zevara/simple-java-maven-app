@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent (credentials: ['ubuntu']) {
-                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ./target/ ubuntu@172.31.30.181:/tmp"
+                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ./target/ ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/"
                     
         
           
