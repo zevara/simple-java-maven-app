@@ -23,10 +23,16 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                input message: 'Start deploy? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/deliver.sh'
-                sh 'chmod +x ./jenkins/scripts/kill.sh'
-                sh './jenkins/scripts/kill.sh'                
+                sshagent (credentials: ['ubuntu']) {
+                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ./target/ ubuntu@172.31.30.181:/tmp"
+                    
+        
+          
+                // input message: 'Start deploy? (Click "Proceed" to continue)'
+                // sh './jenkins/scripts/deliver.sh'
+                // sh 'chmod +x ./jenkins/scripts/kill.sh'
+                // sh './jenkins/scripts/kill.sh'                
+            }
             }
         }
     }
