@@ -29,7 +29,7 @@ pipeline {
                     sh 'chmod +x ./jenkins/scripts/kill.sh'
                     sh './jenkins/scripts/kill.sh'          
                     sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r  /var/jenkins_home/workspace/submission-cicd-pipeline-kawainekodesu/target/ ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/"
-                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/submission-cicd-pipeline-kawainekodesu && java -jar my-app-1.0-SNAPSHOT.jar & '" 
+                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'java -jar /tmp/target/my-app-1.0-SNAPSHOT.jar & '" 
                  
                    
             }
