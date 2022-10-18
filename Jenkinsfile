@@ -21,10 +21,14 @@ pipeline {
                 }
             }
         }
+        stage('Manual Approval'){
+            steps{
+                input message: 'Start deploy? (Click "Proceed" to continue)'
+            }
+        }
         stage('Deploy') {
             steps {
                 sshagent (credentials: ['ubuntu']) {
-                    input message: 'Start deploy? (Click "Proceed" to continue)'
                     sh './jenkins/scripts/deliver.sh'
                     sh 'chmod +x ./jenkins/scripts/kill.sh'
                     sh './jenkins/scripts/kill.sh'          
