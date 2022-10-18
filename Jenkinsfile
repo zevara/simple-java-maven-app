@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sshagent (credentials: ['ubuntu']) {
                     input message: 'Start deploy? (Click "Proceed" to continue)'
-                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r "${PWD}" ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/project/"
+                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r '${PWD}' ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/project/"
                     sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com '/tmp/project/jenkins/scripts/deliver.sh'"   
                 // sh './jenkins/scripts/deliver.sh'
                 // sh 'chmod +x ./jenkins/scripts/kill.sh'
