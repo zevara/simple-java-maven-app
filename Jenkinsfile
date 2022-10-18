@@ -27,10 +27,10 @@ pipeline {
                     input message: 'Start deploy? (Click "Proceed" to continue)'
                     sh "apt update && apt install zip -y"
                     sh "zip -r submission.zip ."
-                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r submission.zip ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/"
+                    sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r submission.zip ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com:/tmp/project"
                     // sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'git clone https://github.com/zevara/simple-java-maven-app.git'"
-                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/ && unzip submission.zip'"
-                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/submission-cicd-pipeline-kawainekodesu && ./jenkins/scripts/deliver.sh'"
+                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/project && unzip submission.zip'"
+                    sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/project && ./jenkins/scripts/deliver.sh'"
                     // sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-169-222-38.ap-southeast-1.compute.amazonaws.com 'cd /tmp/submission-cicd-pipeline-kawainekodesu && ./jenkins/scripts/kill.sh'"    
                 // sh './jenkins/scripts/deliver.sh'
                 // sh 'chmod +x ./jenkins/scripts/kill.sh'
